@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FunionBlazor.Application</name>
+    </assembly>
+    <members>
+        <member name="T:FunionBlazor.Application.Dto.PresentationDataDto">
+            <summary>
+            展示数据
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.CreateDatestr">
+            <summary>
+            创建时间str
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.GdhStation">
+            <summary>
+            轨道衡测点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.WagonNumber">
+            <summary>
+            车号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.MotorcycleType">
+            <summary>
+            车型
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.RoughWeight">
+            <summary>
+            毛重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Tare">
+            <summary>
+            皮重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Suttle">
+            <summary>
+            净重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.IndicatedDeight">
+            <summary>
+            标重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.ProfitLoss">
+            <summary>
+            盈亏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.SuperTons">
+            <summary>
+            超吨
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.OverT">
+            <summary>
+            编辑状态：null-未编辑 0-已编辑 1-以分组 2-上一班移交 3-移交下一班 4-剩余未分组
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Speed">
+            <summary>
+            速度
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.CargoName">
+            <summary>
+            货名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.TransceiverSend">
+            <summary>
+            发货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.TransceiverCollect">
+            <summary>
+            收货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.SendSend">
+            <summary>
+            发站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.SendCollect">
+            <summary>
+            到站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.ShipsName">
+            <summary>
+            船名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.LoadingName">
+            <summary>
+            装车点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.WeightOff">
+            <summary>
+            允增
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.BeforeAfterPartial">
+            <summary>
+            前后偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.AboutPartial">
+            <summary>
+            左右偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.VehiclePartial">
+            <summary>
+            整车偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.LeftOne">
+            <summary>
+            左一（港次）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.RightOne">
+            <summary>
+            右一（换长）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.LeftTwo">
+            <summary>
+            左二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.RightTwo">
+            <summary>
+            右二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.LeftThree">
+            <summary>
+            左三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.RightThree">
+            <summary>
+            右三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.LeftFour">
+            <summary>
+            左四
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.RightFour">
+            <summary>
+            右四（车数）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Remark">
+            <summary>
+            备注：0-新数据 1-未完成数据 2-已完成数据 3-已交接数据 4-待匹配
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.SendState">
+            <summary>
+            状态：0-未发送 1-已发送
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Sequence">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Sum">
+            <summary>
+            总和
+            </summary>
+        </member>
+    </members>
+</doc>

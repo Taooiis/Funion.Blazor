@@ -1,0 +1,60 @@
+﻿@page "/"
+
+ <MCard>
+     <MCardText Class="pa-6">
+         <MRow>
+             <MCol Md=6 Sm=12 Class="d-flex block-center">
+                <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>RefterData()">
+                    刷新
+                </MButton>
+                 <span class="text-btn neutral-lighten-1--text">每页:</span>
+                 <MSelect @bind-Value="_dataPage.PageSize"
+                          Color="primary"
+                          Style="max-width:120px;"
+                          Dense
+                          Class="mx-6"
+                          HideDetails="@("auto")"
+                          Outlined
+                          Items="@_pageSizes"
+                          ItemText="u => u.ToString()"
+                          ItemValue="u => u">
+                 </MSelect>
+                 <span class="text-btn">个</span>
+             </MCol>
+             <MCol Md=6 Sm=12 Class="d-flex block-center">
+                 <MSelect @bind-Value="_dataPage.CreateDatestr"
+                          Color="primary"
+                          Class="rounded-2"
+                          HideDetails="@("auto")"
+                          Outlined
+                          Items="@CreateDatestrlist"
+                          ItemText="u => u"
+                          ItemValue="u => u"
+                          Label="过车时间">
+                 </MSelect>
+                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>_dataPage.GetPageDatas()">
+                     打印
+                 </MButton>
+                
+             </MCol>
+         </MRow>
+     </MCardText>
+    <MDataTable Headers="_headers" Items="_dataPage.GetPageDatas()" TItem="PresentationDataDto" ItemsPerPage="_dataPage.PageSize" HideDefaultFooter Class="user ml-2 table-border-none">
+         <HeaderColContent Context="header">
+             <span class="text-subtitle">@header.Text</span>
+         </HeaderColContent>
+         <ItemColContent>
+             @context.Value
+        </ItemColContent>
+    </MDataTable>
+     <MCardText>
+         <div class="d-flex">
+             <div class="mr-auto pt-3 text-btn neutral-lighten-1--text">第 @((_dataPage.PageIndex - 1) * _dataPage.PageSize + 1) 到 @(_dataPage.PageIndex * _dataPage.PageSize) 一共 @_dataPage.CurrentCount 个</div>
+            @if (_dataPage.PageCount > 0)
+            {
+                <MPagination @bind-Value="_dataPage.PageIndex" Color="primary" Circle Length=@_dataPage.PageCount></MPagination>
+            }
+        </div>
+    </MCardText>
+</MCard> 
+

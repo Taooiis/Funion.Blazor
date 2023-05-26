@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FunionBlazor.Core</name>
+    </assembly>
+    <members>
+        <member name="T:FunionBlazor.Core.Entitys.OUnbalancedLoading">
+            <summary>
+            超偏载
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.TrackScaleid">
+            <summary>
+             GDHid
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.CreateDatestr">
+            <summary>
+            创建时间str
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.GDHStation">
+            <summary>
+            轨道衡测点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.WagonNumber">
+            <summary>
+            车号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.MotorcycleType">
+            <summary>
+            车型
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.RoughWeight">
+            <summary>
+            毛重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.Tare">
+            <summary>
+            皮重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.Suttle">
+            <summary>
+            净重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.IndicatedDeight">
+            <summary>
+            标重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.ProfitLoss">
+            <summary>
+            盈亏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.Speed">
+            <summary>
+            速度
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.CargoName">
+            <summary>
+            货名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.TransceiverSend">
+            <summary>
+            发货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.TransceiverCollect">
+            <summary>
+            收货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.SendSend">
+            <summary>
+            发站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.SendCollect">
+            <summary>
+            到站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.SideArm">
+            <summary>
+            前架
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.AfterFrame">
+            <summary>
+            后架
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.BeforeAfterPartial">
+            <summary>
+            前后差
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.CenterGravityPartial">
+            <summary>
+            重心偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.trackScale">
+            <summary>
+            主表
+            </summary>
+        </member>
+        <member name="T:FunionBlazor.Core.Entitys.SysSettings">
+            <summary>
+            配置表
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.SysSettings.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.SysSettings.AttributeName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.SysSettings.CPZOrder">
+            <summary>
+            CPZ顺序
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.SysSettings.GDHOrder">
+            <summary>
+            GDH顺序
+            </summary>
+        </member>
+        <member name="T:FunionBlazor.Core.Entitys.TrackScale">
+            <summary>
+            轨道衡
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.CreateDatestr">
+            <summary>
+            创建时间str
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.GdhStation">
+            <summary>
+            轨道衡测点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.WagonNumber">
+            <summary>
+            车号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.MotorcycleType">
+            <summary>
+            车型
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.RoughWeight">
+            <summary>
+            毛重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Tare">
+            <summary>
+            皮重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Suttle">
+            <summary>
+            净重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.IndicatedDeight">
+            <summary>
+            标重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.ProfitLoss">
+            <summary>
+            盈亏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.SuperTons">
+            <summary>
+            超吨
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.OverT">
+            <summary>
+            编辑状态：null-未编辑 0-已编辑 1-以分组 2-上一班移交 3-移交下一班 4-剩余未分组
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Speed">
+            <summary>
+            速度
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.CargoName">
+            <summary>
+            货名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.TransceiverSend">
+            <summary>
+            发货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.TransceiverCollect">
+            <summary>
+            收货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.SendSend">
+            <summary>
+            发站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.SendCollect">
+            <summary>
+            到站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.ShipsName">
+            <summary>
+            船名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.LoadingName">
+            <summary>
+            装车点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.WeightOff">
+            <summary>
+            允增
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.BeforeAfterPartial">
+            <summary>
+            前后偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.AboutPartial">
+            <summary>
+            左右偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.VehiclePartial">
+            <summary>
+            整车偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.LeftOne">
+            <summary>
+            左一（港次）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.RightOne">
+            <summary>
+            右一（换长）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.LeftTwo">
+            <summary>
+            左二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.RightTwo">
+            <summary>
+            右二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.LeftThree">
+            <summary>
+            左三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.RightThree">
+            <summary>
+            右三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.LeftFour">
+            <summary>
+            左四
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.RightFour">
+            <summary>
+            右四（车数）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Remark">
+            <summary>
+            备注：0-新数据 1-未完成数据 2-已完成数据 3-已交接数据 4-待匹配
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.SendState">
+            <summary>
+            状态：0-未发送 1-已发送
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Sequence">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.Sum">
+            <summary>
+            总和
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.OUlanced">
+            <summary>
+            从表
+            </summary>
+        </member>
+    </members>
+</doc>

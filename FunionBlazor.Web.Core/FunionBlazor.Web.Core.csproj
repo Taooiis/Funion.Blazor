@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<NoWarn>1701;1702;1591</NoWarn>
+		<DocumentationFile>FunionBlazor.Web.Core.xml</DocumentationFile>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<None Remove="FunionBlazor.Web.Core.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Masa.Blazor" Version="1.0.0-rc.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FunionBlazor.Application\FunionBlazor.Application.csproj" />
+		<ProjectReference Include="..\FunionBlazor.Database.Migrations\FunionBlazor.Database.Migrations.csproj" />
+	</ItemGroup>
+
+</Project>
