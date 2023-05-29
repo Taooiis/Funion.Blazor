@@ -194,5 +194,10 @@
             总和
             </summary>
         </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.IsMate">
+            <summary>
+            是否匹配
+            </summary>
+        </member>
     </members>
 </doc>

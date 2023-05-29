@@ -1,0 +1,84 @@
+﻿@page "/print-table"
+@inject IPrintingService PrintingService
+@inject IJSRuntime JSRuntime
+
+<h1>Print Table</h1>
+<button class="btn btn-primary" @onclick="alert">Print Raw Html</button>
+<button class="btn btn-primary" @onclick="PrintTable">Print Table</button>
+<table class="table" id="datatable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in items)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+    private ElementReference table1111;
+    private IJSObjectReference? module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JSRuntime.InvokeAsync<IJSObjectReference>("import",
+                "./Pages/Test.razor.js");
+        }
+    }
+    private List<Item> items = new List<Item>
+    {
+        new Item { Id = 1, Name = "John", Age = 25 },
+        new Item { Id = 2, Name = "Jane", Age = 30 },
+        new Item { Id = 3, Name = "Bob", Age = 40 }
+    };
+
+    private async Task PrintTable()
+    {
+        await JSRuntime.InvokeVoidAsync("printTable");
+    }
+    private async Task alert()
+    {
+        // string html = "";
+        // if (module is not null)
+        // {
+        //     html = await module.InvokeAsync<string>("getHtml", table1111);
+        // }
+        // await PrintingService.Print(html, PrintType.RawHtml);
+        //await PrintingService.Print("datatable", PrintType.Html);
+    }
+    public class Item
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+}

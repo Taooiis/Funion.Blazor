@@ -195,5 +195,11 @@ namespace FunionBlazor.Application.Dto
         /// 总和
         /// </summary>
         public int Sum { get; set; }
+
+        /// <summary>
+        /// 是否匹配
+        /// </summary>
+        public bool IsMate { get; set; }
+
     }
 }

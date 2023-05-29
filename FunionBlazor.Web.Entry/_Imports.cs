@@ -5,3 +5,4 @@ global using FunionBlazor.Application;
 global using FunionBlazor.Application.Dto;
 global using FunionBlazor.Web.Core.Data;
 global using Microsoft.AspNetCore.Components;
+global using Microsoft.JSInterop;

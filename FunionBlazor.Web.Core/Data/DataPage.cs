@@ -1,9 +1,4 @@
-﻿
-
-
-using System.Linq;
-
-namespace FunionBlazor.Web.Core.Data;
+﻿namespace FunionBlazor.Web.Core.Data;
 public class DataPage<T>
 {
     public IQueryable<T> Datas { get; set; }

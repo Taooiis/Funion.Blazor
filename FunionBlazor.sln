@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.Application", "FunionBlazor.Application\FunionBlazor.Application.csproj", "{86E7E5C4-AA87-469A-A3C9-EF8AB61234D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.Application", "FunionBlazor.Application\FunionBlazor.Application.csproj", "{86E7E5C4-AA87-469A-A3C9-EF8AB61234D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.Core", "FunionBlazor.Core\FunionBlazor.Core.csproj", "{1DB21B64-BA10-4D4B-A9AD-295D2B2F3D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.Core", "FunionBlazor.Core\FunionBlazor.Core.csproj", "{1DB21B64-BA10-4D4B-A9AD-295D2B2F3D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.Database.Migrations", "FunionBlazor.Database.Migrations\FunionBlazor.Database.Migrations.csproj", "{2DAB3A71-DCFD-42A1-B248-484C08E9A50E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.Database.Migrations", "FunionBlazor.Database.Migrations\FunionBlazor.Database.Migrations.csproj", "{2DAB3A71-DCFD-42A1-B248-484C08E9A50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.EntityFramework.Core", "FunionBlazor.EntityFramework.Core\FunionBlazor.EntityFramework.Core.csproj", "{08BB4F43-B8E6-4F20-B081-8312B4025F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.EntityFramework.Core", "FunionBlazor.EntityFramework.Core\FunionBlazor.EntityFramework.Core.csproj", "{08BB4F43-B8E6-4F20-B081-8312B4025F1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.Web.Core", "FunionBlazor.Web.Core\FunionBlazor.Web.Core.csproj", "{29575BAC-0664-4CC9-8C2C-A7BF589FD0FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.Web.Core", "FunionBlazor.Web.Core\FunionBlazor.Web.Core.csproj", "{29575BAC-0664-4CC9-8C2C-A7BF589FD0FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunionBlazor.Web.Entry", "FunionBlazor.Web.Entry\FunionBlazor.Web.Entry.csproj", "{A85B8F0B-783D-4C9B-A111-EC4FDECD6BD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunionBlazor.Web.Entry", "FunionBlazor.Web.Entry\FunionBlazor.Web.Entry.csproj", "{A85B8F0B-783D-4C9B-A111-EC4FDECD6BD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

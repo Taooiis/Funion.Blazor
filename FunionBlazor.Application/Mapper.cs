@@ -16,7 +16,9 @@ namespace FunionBlazor.Application
             config.ForType<TrackScale, PresentationDataDto>()
                 .Map(dest => dest.Tare, src => src.OUlanced.RoughWeight,src=> src.OUlanced!=null)
                 .Map(dest => dest.Tare, src => src.Tare, src => src.OUlanced == null)
+                .Map(dest => dest.IsMate, src => src.OUlanced != null)
                 .Map(dest => dest.Sequence, src => src.Sequence);
+            
 
         }
     }

@@ -1,14 +1,28 @@
-﻿using Microsoft.JSInterop;
+﻿using Append.Blazor.Printing;
 namespace FunionBlazor.Web.Entry.Pages
 {
     public partial class Index
     {
         [Inject]
         private TrackScaleService TrackScaleService { get; set; }
+        [Inject]
+        private IPrintingService PrintingService { get; set; }
+        [Inject]
+        private IJSRuntime JSRuntime { get; set; }
+        private IJSObjectReference? module;
+
         public IQueryable<PresentationDataDto> Datas;
         public PresentationPage _dataPage = null;
         private List<string> CreateDatestrlist { get; set; }
         private readonly List<int> _pageSizes = new() { 10, 25, 50, 100 };
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                module = await JSRuntime.InvokeAsync<IJSObjectReference>("import",
+                    "./Pages/Index.razor.js");
+            }
+        }
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
@@ -17,6 +31,14 @@ namespace FunionBlazor.Web.Entry.Pages
         public async Task RefterData()
         {
             await LoadListDataAsync();
+        }
+        private async Task PrintTable()
+        {
+            if (module is not null)
+            {
+               await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
+            }
+            await PrintingService.Print("MDataTable", PrintType.Html);
         }
         private async Task LoadListDataAsync()
         {
@@ -42,6 +64,7 @@ namespace FunionBlazor.Web.Entry.Pages
             new() { Text = "货名", Value = nameof(PresentationDataDto.CargoName) },
             new() { Text = "发货单位", Value = nameof(PresentationDataDto.TransceiverSend) },
             new() { Text = "收货单位", Value = nameof(PresentationDataDto.TransceiverCollect) },
+            new() { Text = "是否匹配", Value = nameof(PresentationDataDto.IsMate) },
         };
     }
 }
