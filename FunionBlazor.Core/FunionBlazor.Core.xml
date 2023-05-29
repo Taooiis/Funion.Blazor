@@ -164,6 +164,11 @@
             创建时间str
             </summary>
         </member>
+        <member name="P:FunionBlazor.Core.Entitys.TrackScale.StarCreateDatestr">
+            <summary>
+            发站时间
+            </summary>
+        </member>
         <member name="P:FunionBlazor.Core.Entitys.TrackScale.GdhStation">
             <summary>
             轨道衡测点

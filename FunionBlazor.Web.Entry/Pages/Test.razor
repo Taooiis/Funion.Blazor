@@ -20,12 +20,30 @@
             <th>ID</th>
             <th>Name</th>
             <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in items)
         {
             <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
                 <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>@item.Age</td>
@@ -73,7 +91,7 @@
         //     html = await module.InvokeAsync<string>("getHtml", table1111);
         // }
         // await PrintingService.Print(html, PrintType.RawHtml);
-        //await PrintingService.Print("datatable", PrintType.Html);
+        await PrintingService.Print("datatable", PrintType.Html);
     }
     public class Item
     {

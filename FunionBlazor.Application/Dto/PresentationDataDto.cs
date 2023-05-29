@@ -22,6 +22,11 @@ namespace FunionBlazor.Application.Dto
         public string CreateDatestr { get; set; }
 
         /// <summary>
+        /// 发站时间
+        /// </summary>
+        public string StarCreateDatestr { get; set; }
+
+        /// <summary>
         /// 轨道衡测点
         /// </summary>
         public string GdhStation { get; set; }
@@ -172,7 +177,7 @@ namespace FunionBlazor.Application.Dto
         public string RightFour { get; set; }
 
         /// <summary>
-        /// 备注：0-新数据 1-未完成数据 2-已完成数据 3-已交接数据 4-待匹配
+        /// 备注：
         /// </summary>
         public string Remark { get; set; }
 

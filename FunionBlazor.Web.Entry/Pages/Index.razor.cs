@@ -64,6 +64,10 @@ namespace FunionBlazor.Web.Entry.Pages
             new() { Text = "货名", Value = nameof(PresentationDataDto.CargoName) },
             new() { Text = "发货单位", Value = nameof(PresentationDataDto.TransceiverSend) },
             new() { Text = "收货单位", Value = nameof(PresentationDataDto.TransceiverCollect) },
+            new() { Text = "发站", Value = nameof(PresentationDataDto.SendSend) },
+            new() { Text = "到站", Value = nameof(PresentationDataDto.SendCollect) },
+            new() { Text = "发站时间", Value = nameof(PresentationDataDto.StarCreateDatestr) },
+            new() { Text = "备注", Value = nameof(PresentationDataDto.Remark) },
             new() { Text = "是否匹配", Value = nameof(PresentationDataDto.IsMate) },
         };
     }

@@ -19,6 +19,11 @@
             创建时间str
             </summary>
         </member>
+        <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.StarCreateDatestr">
+            <summary>
+            发站时间
+            </summary>
+        </member>
         <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.GdhStation">
             <summary>
             轨道衡测点
@@ -171,7 +176,7 @@
         </member>
         <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.Remark">
             <summary>
-            备注：0-新数据 1-未完成数据 2-已完成数据 3-已交接数据 4-待匹配
+            备注：
             </summary>
         </member>
         <member name="P:FunionBlazor.Application.Dto.PresentationDataDto.SendState">

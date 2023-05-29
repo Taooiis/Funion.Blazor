@@ -20,6 +20,11 @@ namespace FunionBlazor.Core.Entitys
         public string CreateDatestr { get; set; }
 
         /// <summary>
+        /// 发站时间
+        /// </summary>
+        public string StarCreateDatestr { get; set; }
+
+        /// <summary>
         /// 轨道衡测点
         /// </summary>
         public string GdhStation { get; set; }

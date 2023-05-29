@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FunionBlazor.Database.Migrations.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20230525081445_v1.0.0")]
+    [Migration("20230529084310_v1.0.0")]
     partial class v100
     {
         /// <inheritdoc />
@@ -141,54 +141,54 @@ namespace FunionBlazor.Database.Migrations.Migrations
                         {
                             Id = 1,
                             AttributeName = "GDHStation",
-                            CPZOrder = 0,
+                            CPZOrder = 2,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 0,
+                            GDHOrder = 2,
                             Name = "轨道衡测点"
                         },
                         new
                         {
                             Id = 2,
                             AttributeName = "WagonNumber",
-                            CPZOrder = 1,
+                            CPZOrder = 3,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 1,
+                            GDHOrder = 3,
                             Name = "车号"
                         },
                         new
                         {
                             Id = 3,
                             AttributeName = "MotorcycleType",
-                            CPZOrder = 11,
+                            CPZOrder = 4,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 11,
+                            GDHOrder = 4,
                             Name = "车型"
                         },
                         new
                         {
                             Id = 4,
                             AttributeName = "RoughWeight",
-                            CPZOrder = 2,
+                            CPZOrder = 5,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 2,
+                            GDHOrder = 5,
                             Name = "毛重"
                         },
                         new
                         {
                             Id = 5,
                             AttributeName = "Tare",
-                            CPZOrder = 3,
+                            CPZOrder = 6,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 3,
+                            GDHOrder = 6,
                             Name = "皮重"
                         },
                         new
                         {
                             Id = 6,
                             AttributeName = "Suttle",
-                            CPZOrder = 4,
+                            CPZOrder = 7,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 4,
+                            GDHOrder = 7,
                             Name = "净重"
                         },
                         new
@@ -231,45 +231,45 @@ namespace FunionBlazor.Database.Migrations.Migrations
                         {
                             Id = 11,
                             AttributeName = "CargoName",
-                            CPZOrder = 5,
+                            CPZOrder = 11,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 5,
+                            GDHOrder = 11,
                             Name = "货名"
                         },
                         new
                         {
                             Id = 12,
                             AttributeName = "TransceiverSend",
-                            CPZOrder = 6,
+                            CPZOrder = 12,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 6,
+                            GDHOrder = 12,
                             Name = "发货单位"
                         },
                         new
                         {
                             Id = 13,
                             AttributeName = "TransceiverCollect",
-                            CPZOrder = 7,
+                            CPZOrder = 13,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 7,
+                            GDHOrder = 13,
                             Name = "收货单位"
                         },
                         new
                         {
                             Id = 14,
                             AttributeName = "SendSend",
-                            CPZOrder = 0,
+                            CPZOrder = 14,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 0,
+                            GDHOrder = 14,
                             Name = "发站"
                         },
                         new
                         {
                             Id = 15,
                             AttributeName = "SendCollect",
-                            CPZOrder = 0,
+                            CPZOrder = 15,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 0,
+                            GDHOrder = 15,
                             Name = "到站"
                         },
                         new
@@ -437,11 +437,29 @@ namespace FunionBlazor.Database.Migrations.Migrations
                         new
                         {
                             Id = 34,
-                            AttributeName = "CreateDatestr",
-                            CPZOrder = 0,
+                            AttributeName = "StarCreateDatestr",
+                            CPZOrder = 16,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            GDHOrder = 0,
+                            GDHOrder = 16,
+                            Name = "发站时间"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AttributeName = "CreateDatestr",
+                            CPZOrder = 1,
+                            CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            GDHOrder = 1,
                             Name = "时间"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            AttributeName = "Remark",
+                            CPZOrder = 17,
+                            CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            GDHOrder = 17,
+                            Name = "备注"
                         });
                 });
 
@@ -538,6 +556,9 @@ namespace FunionBlazor.Database.Migrations.Migrations
                     b.Property<string>("Speed")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("StarCreateDatestr")
+                        .HasColumnType("longtext");
+
                     b.Property<int>("Sum")
                         .HasColumnType("int");
 
@@ -576,7 +597,7 @@ namespace FunionBlazor.Database.Migrations.Migrations
             modelBuilder.Entity("FunionBlazor.Core.Entitys.OUnbalancedLoading", b =>
                 {
                     b.HasOne("FunionBlazor.Core.Entitys.TrackScale", "trackScale")
-                        .WithOne("OUlancedlist")
+                        .WithOne("OUlanced")
                         .HasForeignKey("FunionBlazor.Core.Entitys.OUnbalancedLoading", "TrackScaleid");
 
                     b.Navigation("trackScale");
@@ -584,7 +605,7 @@ namespace FunionBlazor.Database.Migrations.Migrations
 
             modelBuilder.Entity("FunionBlazor.Core.Entitys.TrackScale", b =>
                 {
-                    b.Navigation("OUlancedlist");
+                    b.Navigation("OUlanced");
                 });
 #pragma warning restore 612, 618
         }
