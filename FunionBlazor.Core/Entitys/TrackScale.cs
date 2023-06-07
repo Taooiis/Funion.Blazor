@@ -70,7 +70,7 @@ namespace FunionBlazor.Core.Entitys
         public string SuperTons { get; set; }
 
         /// <summary>
-        /// 编辑状态：null-未编辑 0-已编辑 1-以分组 2-上一班移交 3-移交下一班 4-剩余未分组
+        /// 是否匹配 1是已匹配 0是未匹配
         /// </summary>
         public string OverT { get; set; }
 

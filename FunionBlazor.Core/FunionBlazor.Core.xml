@@ -24,9 +24,14 @@
             创建时间str
             </summary>
         </member>
-        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.GDHStation">
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.GdhStation">
             <summary>
             轨道衡测点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.StarCreateDatestr">
+            <summary>
+            发站时间
             </summary>
         </member>
         <member name="P:FunionBlazor.Core.Entitys.OUnbalancedLoading.WagonNumber">
@@ -216,7 +221,7 @@
         </member>
         <member name="P:FunionBlazor.Core.Entitys.TrackScale.OverT">
             <summary>
-            编辑状态：null-未编辑 0-已编辑 1-以分组 2-上一班移交 3-移交下一班 4-剩余未分组
+            是否匹配 1是已匹配 0是未匹配
             </summary>
         </member>
         <member name="P:FunionBlazor.Core.Entitys.TrackScale.Speed">

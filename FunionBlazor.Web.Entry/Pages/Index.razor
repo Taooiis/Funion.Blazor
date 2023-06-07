@@ -4,92 +4,74 @@
     <MCardText Class="pa-6">
         <h6>过车时间</h6>
         <MRow Class="mt-3">
-            <MCol Sm=12 Md=4>
-                <MSelect @bind-Value="_dataPage.Year"
-                         Color="primary"
-                         HideDetails="@("auto")"
-                         Clearable
-                         Outlined
-                         Items="_dataPage.GetYearList()"
-                         ItemText="u => u"
-                         ItemValue="u => u"
-                         Label="年">
-                </MSelect>
-                </MCol>
-                <MCol Sm=12 Md=4>
-                <MSelect @bind-Value="_dataPage.Month"
-                         HideDetails="@("auto")"
-                         Clearable
-                         Outlined
-                         Color="primary"
-                         Items="_dataPage.GetMonthList()"
-                         ItemText="u => u"
-                         ItemValue="u => u"
-                         TValue="string"
-                         TItem="string"
-                         TItemValue="string"
-                         Label="月">
-                </MSelect>
-                </MCol>
-                <MCol Sm=12 Md=4>
-                <MSelect @bind-Value="_dataPage.Day"
-                         Color="primary"
-                         HideDetails="@("auto")"
-                         Clearable
-                         Outlined
-                         Items="_dataPage.GetDayList()"
-                         ItemText="u => u"
-                         ItemValue="u => u"
-                         Label="日">
-                </MSelect>
-                </MCol>
-             </MRow>
-        </MCardText>
+            <MCol Sm=12 Md=9>
+                <MCascader @bind-Value="_dataPage.CreateDatestr"
+                           Color="primary"
+                           Class="rounded-2"
+                           HideDetails="@("auto")"
+                           Outlined
+                            Items="_Nodes"
+                            ItemText="u => u.Label"
+                            ItemValue="u => u.Value"
+                            ItemChildren="u => u.Children"
+                            Label="过车时间">
+                 </MCascader>
+             </MCol>
+             <MCol Sm=12 Md=3>
+                <MCascader @bind-Value="_dataPage.CreateDatestr"
+                            Color="primary"
+                            Class="rounded-2"
+                            HideDetails="@("auto")"
+                           Outlined
+                            Items="_Nodes"
+                            ItemText="u => u.Label"
+                            ItemValue="u => u.Value"
+                            ItemChildren="u => u.Children"
+                            ShowAllLevels="false">
+                 </MCascader>
+             </MCol>
+         </MRow>
+     </MCardText>
  </MCard>
-<MCard Id="MasaTable">
-    <MCardText Class="pa-6">
+ <MCard Id="MasaTable">
+     <MCardText Class="pa-6">
          <MRow>
-            <MCol Md=6 Sm=12 Class="d-flex block-center">
-                <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>RefterData()">
-                    刷新
-                </MButton>
-                <span class="text-btn neutral-lighten-1--text">每页:</span>
-                <MSelect @bind-Value="_dataPage.PageSize"
-                         Color="primary"
-                         Style="max-width:120px;"
+             <MCol Md=9 Sm=12 Class="d-flex block-center">
+                 <MTextField @bind-Value="_dataPage.Cstr"
+                             Disabled
+                             Color="purple darken-2"
+                             Label="时间日期">
+                 </MTextField>
+                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>RefterData()">
+                     刷新
+                 </MButton>
+                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="PrintTable">
+                     打印
+                 </MButton>
+             </MCol>
+            @*<MCol Md=6 Sm=12 Class="d-flex block-center">
+                 <span class="text-btn neutral-lighten-1--text">每页:</span>
+                 <MSelect @bind-Value="_dataPage.PageSize"
+                          Color="primary"
+                          Style="max-width:120px;"
                          Dense
-                         Class="mx-6"
-                         HideDetails="@("auto")"
+                          Class="mx-6"
+                          HideDetails="@("auto")"
                          Outlined
-                         Items="@_pageSizes"
-                         ItemText="u => u.ToString()"
-                         ItemValue="u => u">
-                </MSelect>
-                <span class="text-btn">个</span>
-                </MCol>
-                <MCol Md=6 Sm=12 Class="d-flex block-center">
-                <MSelect @bind-Value="_dataPage.CreateDatestr"
-                         Color="primary"
-                         Class="rounded-2"
-                         HideDetails="@("auto")"
-                         Outlined
-                         Items="@CreateDatestrlist"
-                         ItemText="u => u"
-                         ItemValue="u => u"
-                         Label="过车时间">
-                </MSelect>
-                <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="PrintTable">
-                    打印
-                </MButton>
-                </MCol>
-                </MRow>
-                </MCardText>
+                          Items="@_pageSizes"
+                          ItemText="u => u.ToString()"
+                          ItemValue="u => u">
+                 </MSelect>
+                 <span class="text-btn">个</span>
+             </MCol>*@
+         </MRow>
+     </MCardText>
      <MDataTable FixedRight Headers="_headers" Items="_dataPage.GetPageDatas()" TItem="PresentationDataDto" ItemsPerPage="_dataPage.PageSize" HideDefaultFooter Class="user ml-2 table-border-none">
-        <HeaderColContent Context="header">
-            <span class="text-subtitle">@header.Text</span>
-        </HeaderColContent>
-        <ItemColContent>
-            @switch (context.Header.Value)
+         <HeaderColContent Context="header">
+             <span class="text-subtitle">@header.Text</span>
+         </HeaderColContent>
+         <ItemColContent>
+             @switch (context.Header.Value)
             {
                 case nameof(PresentationDataDto.IsMate):
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FunionBlazor.Application.Dto
 {
-    public class DateDto
+    public class FiltersDateDto
     {
         /// <summary>
         /// 年
@@ -21,5 +21,11 @@ namespace FunionBlazor.Application.Dto
         /// 日
         /// </summary>
         public string Day { get; set; }
+
+        /// <summary>
+        /// 日期时间
+        /// </summary>
+        public string CreateDatestr { get; set; }
+        
     }
 }

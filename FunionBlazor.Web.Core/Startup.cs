@@ -1,8 +1,6 @@
 ﻿using Append.Blazor.Printing;
-
 using Furion;
 using Furion.VirtualFileServer;
-
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +21,7 @@ namespace FunionBlazor.Web.Core
             services.AddScoped<IPrintingService, PrintingService>();
             services.AddHostedService<CPZWorker>();
             services.AddHostedService<GDHWorker>();
-          
+            services.AddHostedService<MateWorker>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

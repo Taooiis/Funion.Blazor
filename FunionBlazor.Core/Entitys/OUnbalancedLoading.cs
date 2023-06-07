@@ -27,7 +27,12 @@ namespace FunionBlazor.Core.Entitys
         /// <summary>
         /// 轨道衡测点
         /// </summary>
-        public string GDHStation { get; set; }
+        public string GdhStation { get; set; }
+
+        /// <summary>
+        /// 发站时间
+        /// </summary>
+        public string StarCreateDatestr { get; set; }
 
         /// <summary>
         /// 车号

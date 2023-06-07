@@ -135,7 +135,9 @@ namespace FunionBlazor.Database.Migrations.Migrations
                     CreateDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreateDatestr = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    GDHStation = table.Column<string>(type: "longtext", nullable: true)
+                    GdhStation = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    StarCreateDatestr = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     WagonNumber = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -192,7 +194,7 @@ namespace FunionBlazor.Database.Migrations.Migrations
                 columns: new[] { "Id", "AttributeName", "CPZOrder", "CreatedTime", "GDHOrder", "Name", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { 1, "GDHStation", 2, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2, "轨道衡测点", null },
+                    { 1, "GdhStation", 2, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2, "轨道衡测点", null },
                     { 2, "WagonNumber", 3, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3, "车号", null },
                     { 3, "MotorcycleType", 4, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 4, "车型", null },
                     { 4, "RoughWeight", 5, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 5, "毛重", null },

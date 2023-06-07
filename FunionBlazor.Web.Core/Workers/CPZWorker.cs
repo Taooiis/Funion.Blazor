@@ -17,6 +17,7 @@ public class CPZWorker : BackgroundService
     // 服务工厂
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IConfiguration _configuration;
+    private static List<SysSettings> sysSettings = new List<SysSettings>();
     public CPZWorker(IServiceScopeFactory scopeFactory, IConfiguration configuration)
     {
         _scopeFactory = scopeFactory;
@@ -25,10 +26,21 @@ public class CPZWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        string FilePath = _configuration["CPZ:FilePath"];
-        string BackupFilePath = _configuration["CPZ:BackupFilePath"];
         using var scope = _scopeFactory.CreateScope();
         var services = scope.ServiceProvider;
+        var sysrespository = Db.GetRepository<SysSettings>(services);
+        sysSettings = sysrespository.Where(u => u.CPZOrder != 0).OrderBy(o => o.CPZOrder).ToList();
+        string FilePath = _configuration["CPZ:FilePath"];
+        string BackupFilePath = _configuration["CPZ:BackupFilePath"];
+        if (!Directory.Exists(FilePath))
+        {
+            Directory.CreateDirectory(FilePath);
+        }
+
+        if (!Directory.Exists(BackupFilePath))
+        {
+            Directory.CreateDirectory(BackupFilePath);
+        }
         while (!stoppingToken.IsCancellationRequested)
         {
             if (Directory.Exists(FilePath) && Directory.Exists(BackupFilePath))
@@ -60,9 +72,6 @@ public class CPZWorker : BackgroundService
     protected void SaveData(IServiceProvider services, string[] lines)
     {
         var CPZrespository = Db.GetRepository<OUnbalancedLoading>(services);
-        var CDHrespository = Db.GetRepository<TrackScale>(services);
-        var sysrespository = Db.GetRepository<SysSettings>(services);
-        var cigs = sysrespository.Where(u => u.CPZOrder != 0).OrderBy(o => o.CPZOrder).ToList();
         var oUnbalanceds = new List<OUnbalancedLoading>();
         string CPZformat = _configuration["CPZ:CPZformat"];
         if (!int.TryParse(CPZformat, out int result))
@@ -94,9 +103,9 @@ public class CPZWorker : BackgroundService
                 };
                 for (int j = 1; j < arr.Length; j++)
                 {
-                    if (j < cigs.Count)
+                    if (j < sysSettings.Count)
                     {
-                        typeof(OUnbalancedLoading).GetProperty(cigs[j - 1].AttributeName).SetValue(t, arr[j].Trim());
+                        typeof(OUnbalancedLoading).GetProperty(sysSettings[j - 1].AttributeName).SetValue(t, arr[j].Trim());
                     }
                 }
                 t.Direction = Direction;
@@ -107,22 +116,6 @@ public class CPZWorker : BackgroundService
         }
         if (oUnbalanceds.Any())
         {
-            var ch = oUnbalanceds.Select(x => x.WagonNumber).ToList();
-            DateTime starDate = CreateDate.AddHours(-5);
-            DateTime endDate = CreateDate.AddHours(5);
-            //匹配
-            var list = CDHrespository.Where(x => ch.Contains(x.WagonNumber))
-                          .Where(u => u.CreateDate >= starDate && u.CreateDate <= endDate).ToList();
-            oUnbalanceds.ForEach(item =>
-            {
-                var track = list.Where(o => o.WagonNumber == item.WagonNumber)
-                                       .OrderByDescending(o => o.CreateDate)
-                                       .FirstOrDefault();
-                if (track != null)
-                {
-                    item.TrackScaleid = track.Id;
-                }
-            });
             CPZrespository.Context.BulkInsert(oUnbalanceds);
         }
     }

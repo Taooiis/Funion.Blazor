@@ -19,6 +19,7 @@ public class GDHWorker : BackgroundService
     // 服务工厂
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IConfiguration _configuration;
+    private static List<SysSettings> sysSettings = new List<SysSettings>();
     public GDHWorker(IServiceScopeFactory scopeFactory, IConfiguration configuration)
     {
         _scopeFactory = scopeFactory;
@@ -27,10 +28,22 @@ public class GDHWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        string FilePath = _configuration["GDH:FilePath"];
-        string BackupFilePath = _configuration["GDH:BackupFilePath"];
+        
         using var scope = _scopeFactory.CreateScope();
         IServiceProvider services = scope.ServiceProvider;
+        var sysrespository = Db.GetRepository<SysSettings>(services);
+        sysSettings = sysrespository.Where(u => u.GDHOrder != 0).OrderBy(o => o.GDHOrder).ToList();
+        string FilePath = _configuration["GDH:FilePath"];
+        string BackupFilePath = _configuration["GDH:BackupFilePath"];
+        if (!Directory.Exists(FilePath))
+        {
+            Directory.CreateDirectory(FilePath);
+        }
+
+        if (!Directory.Exists(BackupFilePath))
+        {
+            Directory.CreateDirectory(BackupFilePath);
+        }
         while (!stoppingToken.IsCancellationRequested)
         {
             if (Directory.Exists(FilePath) && Directory.Exists(BackupFilePath))
@@ -62,8 +75,6 @@ public class GDHWorker : BackgroundService
     protected void SaveData(IServiceProvider services, string[] lines)
     {
         var GDHrespository = Db.GetRepository<TrackScale>(services);
-        var sysrespository = Db.GetRepository<SysSettings>(services);
-        var cigs= sysrespository.Where(u => u.GDHOrder != 0).OrderBy(o=>o.GDHOrder).ToList();
         List<TrackScale> tracks = new();
         string GDHformat = _configuration["GDH:GDHformat"];
         if (!int.TryParse(GDHformat, out int result))
@@ -96,9 +107,9 @@ public class GDHWorker : BackgroundService
                 };
                 for (int j = 1; j < arr.Length; j++)
                 {
-                    if (j < cigs.Count)
+                    if (j < sysSettings.Count)
                     {
-                        typeof(TrackScale).GetProperty(cigs[j-1].AttributeName).SetValue(t, arr[j].Trim());
+                        typeof(TrackScale).GetProperty(sysSettings[j-1].AttributeName).SetValue(t, arr[j].Trim());
                     }
                 }
                 t.Direction= Direction;

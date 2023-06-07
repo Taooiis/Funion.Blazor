@@ -49,7 +49,7 @@ namespace FunionBlazor.Database.Migrations.Migrations
                     b.Property<string>("Direction")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("GDHStation")
+                    b.Property<string>("GdhStation")
                         .HasColumnType("longtext");
 
                     b.Property<string>("IndicatedDeight")
@@ -74,6 +74,9 @@ namespace FunionBlazor.Database.Migrations.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Speed")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("StarCreateDatestr")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Suttle")
@@ -137,7 +140,7 @@ namespace FunionBlazor.Database.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            AttributeName = "GDHStation",
+                            AttributeName = "GdhStation",
                             CPZOrder = 2,
                             CreatedTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             GDHOrder = 2,

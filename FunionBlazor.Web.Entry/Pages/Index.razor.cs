@@ -13,15 +13,16 @@ namespace FunionBlazor.Web.Entry.Pages
 
         public IQueryable<PresentationDataDto> Datas;
         public PresentationPage _dataPage = null;
-
-        //private List<string> Yearlist { get; set; }
-        //private List<string> Monthlist { get; set; }
-        //private List<string> Daylist { get; set; }
+        private List<BCascaderNode> _Nodes { get; set; }
        
-        private List<string> CreateDatestrlist { get; set; }
         private readonly List<int> _pageSizes = new() { 10, 25, 50, 100 };
+        public class BCascaderNode
+        {
+            public string Value { get; set; }
+            public string Label { get; set; }
+            public List<BCascaderNode> Children { get; set; } = new();
+        }
 
-      
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
@@ -35,6 +36,7 @@ namespace FunionBlazor.Web.Entry.Pages
             await base.OnInitializedAsync();
             await LoadListDataAsync();
         }
+
         public async Task RefterData()
         {
             await LoadListDataAsync();
@@ -43,17 +45,45 @@ namespace FunionBlazor.Web.Entry.Pages
         {
             if (module is not null)
             {
-               await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
+                await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
             }
             await PrintingService.Print("MDataTable", PrintType.Html);
         }
         private async Task LoadListDataAsync()
         {
             var datas = TrackScaleService.GetPresentationDataDtoList();
-            string cstr = datas.OrderByDescending(o=>o.CreateDate).FirstOrDefault()?.CreateDatestr;
+            string cstr = datas.OrderByDescending(o => o.CreateDate).FirstOrDefault()?.CreateDatestr;
             _dataPage = new PresentationPage(datas, createDate: cstr);
             _dataPage.DateDtolist = TrackScaleService.GetTrackScaleDateDto();
-            //CreateDatestrlist = _dataPage.Datas.Select(o=>o.CreateDatestr).Distinct().ToList();
+            LoadChildren(_dataPage.DateDtolist);
+            
+        }
+        public void LoadChildren(List<FiltersDateDto> list)
+        {
+            _Nodes = list.GroupBy(fd => fd.Year)
+                        .Select(y => new BCascaderNode
+                        {
+                            Value = y.Key.ToString(),
+                            Label = $"{y.Key}年",
+                            Children = y.GroupBy(m => m.Month)
+                            .Select(m => new BCascaderNode
+                            {
+                                Value = $"{y.Key}-{m.Key}",
+                                Label = $"{m.Key}月",
+                                Children = m.GroupBy(d => d.Day)
+                                .Select(d => new BCascaderNode
+                                {
+                                    Value = $"{y.Key}-{m.Key}-{d.Key}",
+                                    Label = $"{d.Key}日",
+                                    Children = d.GroupBy(x => x.CreateDatestr)
+                                    .Select(x => new BCascaderNode
+                                    {
+                                        Value = x.Key,
+                                        Label = x.Key
+                                    }).ToList()
+                                }).ToList()
+                            }).ToList()
+                        }).ToList();
         }
 
         private readonly List<DataTableHeader<PresentationDataDto>> _headers = new()

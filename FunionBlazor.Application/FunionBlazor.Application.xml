@@ -4,19 +4,24 @@
         <name>FunionBlazor.Application</name>
     </assembly>
     <members>
-        <member name="P:FunionBlazor.Application.Dto.DateDto.Year">
+        <member name="P:FunionBlazor.Application.Dto.FiltersDateDto.Year">
             <summary>
             年
             </summary>
         </member>
-        <member name="P:FunionBlazor.Application.Dto.DateDto.Month">
+        <member name="P:FunionBlazor.Application.Dto.FiltersDateDto.Month">
             <summary>
             月
             </summary>
         </member>
-        <member name="P:FunionBlazor.Application.Dto.DateDto.Day">
+        <member name="P:FunionBlazor.Application.Dto.FiltersDateDto.Day">
             <summary>
             日
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.FiltersDateDto.CreateDatestr">
+            <summary>
+            日期时间
             </summary>
         </member>
         <member name="T:FunionBlazor.Application.Dto.PresentationDataDto">

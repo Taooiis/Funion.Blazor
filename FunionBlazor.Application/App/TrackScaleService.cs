@@ -20,9 +20,9 @@ namespace FunionBlazor.Application
         {
             return _repository.AsQueryable().OrderByDescending(o => o.CreateDate).Include(u => u.OUlanced); ;
         }
-        public List<DateDto> GetTrackScaleDateDto()
+        public List<FiltersDateDto> GetTrackScaleDateDto()
         {
-            return "SELECT EXTRACT(YEAR FROM CreateDate) AS Year, EXTRACT(Month FROM CreateDate) AS Month,EXTRACT(DAY FROM CreateDate) AS DAY\r\nFROM (SELECT DISTINCT CreateDate FROM trackscale) as t".SqlQuery<DateDto>();
+            return "SELECT EXTRACT(YEAR FROM CreateDate) AS Year, EXTRACT(Month FROM CreateDate) AS Month,EXTRACT(DAY FROM CreateDate) AS DAY,CreateDatestr\r\nFROM (SELECT DISTINCT CreateDate,CreateDatestr FROM trackscale) as t;".SqlQuery<FiltersDateDto>();
         }
         public IQueryable<PresentationDataDto> GetPresentationDataDtoList()
         {
