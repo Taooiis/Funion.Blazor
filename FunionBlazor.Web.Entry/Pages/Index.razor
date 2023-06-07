@@ -1,8 +1,54 @@
 ﻿@page "/"
 
+<MCard>
+    <MCardText Class="pa-6">
+        <h6>过车时间</h6>
+        <MRow Class="mt-3">
+            <MCol Sm=12 Md=4>
+                <MSelect @bind-Value="_dataPage.Year"
+                         Color="primary"
+                         HideDetails="@("auto")"
+                         Clearable
+                         Outlined
+                         Items="_dataPage.GetYearList()"
+                         ItemText="u => u"
+                         ItemValue="u => u"
+                         Label="年">
+                </MSelect>
+                </MCol>
+                <MCol Sm=12 Md=4>
+                <MSelect @bind-Value="_dataPage.Month"
+                         HideDetails="@("auto")"
+                         Clearable
+                         Outlined
+                         Color="primary"
+                         Items="_dataPage.GetMonthList()"
+                         ItemText="u => u"
+                         ItemValue="u => u"
+                         TValue="string"
+                         TItem="string"
+                         TItemValue="string"
+                         Label="月">
+                </MSelect>
+                </MCol>
+                <MCol Sm=12 Md=4>
+                <MSelect @bind-Value="_dataPage.Day"
+                         Color="primary"
+                         HideDetails="@("auto")"
+                         Clearable
+                         Outlined
+                         Items="_dataPage.GetDayList()"
+                         ItemText="u => u"
+                         ItemValue="u => u"
+                         Label="日">
+                </MSelect>
+                </MCol>
+             </MRow>
+        </MCardText>
+ </MCard>
 <MCard Id="MasaTable">
     <MCardText Class="pa-6">
-        <MRow>
+         <MRow>
             <MCol Md=6 Sm=12 Class="d-flex block-center">
                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>RefterData()">
                     刷新
@@ -12,47 +58,48 @@
                          Color="primary"
                          Style="max-width:120px;"
                          Dense
-                          Class="mx-6"
-                          HideDetails="@("auto")"
+                         Class="mx-6"
+                         HideDetails="@("auto")"
                          Outlined
-                          Items="@_pageSizes"
-                          ItemText="u => u.ToString()"
-                          ItemValue="u => u">
-                 </MSelect>
-                 <span class="text-btn">个</span>
-             </MCol>
-             <MCol Md=6 Sm=12 Class="d-flex block-center">
-                 <MSelect @bind-Value="_dataPage.CreateDatestr"
-                          Color="primary"
-                          Class="rounded-2"
-                          HideDetails="@("auto")"
+                         Items="@_pageSizes"
+                         ItemText="u => u.ToString()"
+                         ItemValue="u => u">
+                </MSelect>
+                <span class="text-btn">个</span>
+                </MCol>
+                <MCol Md=6 Sm=12 Class="d-flex block-center">
+                <MSelect @bind-Value="_dataPage.CreateDatestr"
+                         Color="primary"
+                         Class="rounded-2"
+                         HideDetails="@("auto")"
                          Outlined
-                          Items="@CreateDatestrlist"
-                          ItemText="u => u"
-                          ItemValue="u => u"
-                          Label="过车时间">
-                 </MSelect>
-                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="PrintTable">
-                     打印
-                 </MButton>
-             </MCol>
-         </MRow>
-     </MCardText>
+                         Items="@CreateDatestrlist"
+                         ItemText="u => u"
+                         ItemValue="u => u"
+                         Label="过车时间">
+                </MSelect>
+                <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="PrintTable">
+                    打印
+                </MButton>
+                </MCol>
+                </MRow>
+                </MCardText>
      <MDataTable FixedRight Headers="_headers" Items="_dataPage.GetPageDatas()" TItem="PresentationDataDto" ItemsPerPage="_dataPage.PageSize" HideDefaultFooter Class="user ml-2 table-border-none">
-         <HeaderColContent Context="header">
-             <span class="text-subtitle">@header.Text</span>
-         </HeaderColContent>
-         <ItemColContent>
-             @switch (context.Header.Value)
+        <HeaderColContent Context="header">
+            <span class="text-subtitle">@header.Text</span>
+        </HeaderColContent>
+        <ItemColContent>
+            @switch (context.Header.Value)
             {
                 case nameof(PresentationDataDto.IsMate):
-                    
+
                     if ((bool)@context.Value)
                     {
                         <MChip Color="sample-green-lighten-5" TextColor="sample-green" Ripple="false">
                             <span>成功匹配</span>
                         </MChip>
-                    } else
+                    }
+                    else
                     {
                         <MChip Color="error-lighten-5" TextColor="error" Ripple="false">
                             <span>未匹配</span>

@@ -1,5 +1,10 @@
-﻿using FunionBlazor.Application.Dto;
+﻿using System;
+
+using FunionBlazor.Application.Dto;
 using FunionBlazor.Core.Entitys;
+
+using Furion.DatabaseAccessor.Extensions;
+
 using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,9 +20,9 @@ namespace FunionBlazor.Application
         {
             return _repository.AsQueryable().OrderByDescending(o => o.CreateDate).Include(u => u.OUlanced); ;
         }
-        public List<TrackScale> GetTrackScaleList()
+        public List<DateDto> GetTrackScaleDateDto()
         {
-            return _repository.Include(u => u.OUlanced).ToList(); 
+            return "SELECT EXTRACT(YEAR FROM CreateDate) AS Year, EXTRACT(Month FROM CreateDate) AS Month,EXTRACT(DAY FROM CreateDate) AS DAY\r\nFROM (SELECT DISTINCT CreateDate FROM trackscale) as t".SqlQuery<DateDto>();
         }
         public IQueryable<PresentationDataDto> GetPresentationDataDtoList()
         {

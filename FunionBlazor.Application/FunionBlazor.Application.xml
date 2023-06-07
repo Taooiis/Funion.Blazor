@@ -4,6 +4,21 @@
         <name>FunionBlazor.Application</name>
     </assembly>
     <members>
+        <member name="P:FunionBlazor.Application.Dto.DateDto.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.DateDto.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.DateDto.Day">
+            <summary>
+            日
+            </summary>
+        </member>
         <member name="T:FunionBlazor.Application.Dto.PresentationDataDto">
             <summary>
             展示数据
