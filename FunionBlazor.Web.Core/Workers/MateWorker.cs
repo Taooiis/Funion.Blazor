@@ -14,8 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using static System.Net.Mime.MediaTypeNames;
-
 namespace FunionBlazor.Web.Core;
 public class MateWorker : BackgroundService
 {
