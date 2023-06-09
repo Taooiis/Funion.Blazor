@@ -16,8 +16,8 @@ public class DataPage<T>
     }
     public virtual IEnumerable<T> GetFilterDatas()
     {
-        IEnumerable<T> datas = Datas;
-        return datas;
+        var  datas = Datas;
+        return datas.AsEnumerable();
     }
     public virtual List<T1> GetFilterlistData<T1>(Expression<Func<T, T1>> selectExpression)
     {
@@ -29,7 +29,7 @@ public class DataPage<T>
     }
     public virtual List<T> GetPageDatas()
     {
-        if(GetFilterDatas().Count() < (PageIndex - 1) * PageSize) PageIndex = 1;
+        if(CurrentCount < (PageIndex - 1) * PageSize) PageIndex = 1;
         return GetFilterDatas().Skip((PageIndex - 1) * PageSize).Take(PageSize).ToList();
     }
 }

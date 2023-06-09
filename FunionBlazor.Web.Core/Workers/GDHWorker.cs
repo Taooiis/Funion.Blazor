@@ -7,8 +7,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using FunionBlazor.Core;
 using FunionBlazor.Core.Entitys;
 using Furion.DatabaseAccessor;
+
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,11 +23,13 @@ public class GDHWorker : BackgroundService
     // 服务工厂
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IConfiguration _configuration;
+    private readonly IHubContext<ChatHub> _hubContext;
     private static List<SysSettings> sysSettings = new List<SysSettings>();
-    public GDHWorker(IServiceScopeFactory scopeFactory, IConfiguration configuration)
+    public GDHWorker(IServiceScopeFactory scopeFactory, IConfiguration configuration, IHubContext<ChatHub> hubContext)
     {
         _scopeFactory = scopeFactory;
         _configuration = configuration;
+        _hubContext= hubContext;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -46,6 +52,7 @@ public class GDHWorker : BackgroundService
         }
         while (!stoppingToken.IsCancellationRequested)
         {
+            
             if (Directory.Exists(FilePath) && Directory.Exists(BackupFilePath))
             {
                 string[] txtFiles = Directory.GetFiles(FilePath, "*.txt");
@@ -120,6 +127,7 @@ public class GDHWorker : BackgroundService
         }
         if (tracks.Any()) {
             GDHrespository.Context.BulkInsert(tracks);
+             _hubContext.Clients.All.SendAsync("SuccesMate",$"成功匹配: {DateTime.Now}");
         }
     }
 

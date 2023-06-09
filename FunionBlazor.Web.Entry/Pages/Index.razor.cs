@@ -1,12 +1,18 @@
 ﻿using Append.Blazor.Printing;
+using FunionBlazor.Web.Core.Data;
+
+using Microsoft.AspNetCore.SignalR.Client;
+
 namespace FunionBlazor.Web.Entry.Pages
 {
     public partial class Index
     {
+        private HubConnection _hubConnection;
         [Inject]
         private TrackScaleService TrackScaleService { get; set; }
         [Inject]
         private IPrintingService PrintingService { get; set; }
+        
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
         private IJSObjectReference? module;
@@ -34,6 +40,11 @@ namespace FunionBlazor.Web.Entry.Pages
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
+            SignalRService.hubConnection.On<string>("SuccesMate", (msg) =>
+            {
+                LoadListDataAsync();
+                InvokeAsync(() => StateHasChanged());
+            });
             await LoadListDataAsync();
         }
 
@@ -51,10 +62,12 @@ namespace FunionBlazor.Web.Entry.Pages
         }
         private async Task LoadListDataAsync()
         {
-            var datas = TrackScaleService.GetPresentationDataDtoList();
-            string cstr = datas.OrderByDescending(o => o.CreateDate).FirstOrDefault()?.CreateDatestr;
-            _dataPage = new PresentationPage(datas, createDate: cstr);
-            _dataPage.DateDtolist = TrackScaleService.GetTrackScaleDateDto();
+            var list=TrackScaleService.GetTrackScaleDateDto();
+            string cstr = list.FirstOrDefault().CreateDatestr;
+            var datas = TrackScaleService.GetPresentationDataDtoListByCreateDatestr(cstr);
+            _dataPage = new PresentationPage(datas);
+            _dataPage.DateDtolist = list;
+            _dataPage.CreateDatestr = cstr;
             LoadChildren(_dataPage.DateDtolist);
             
         }

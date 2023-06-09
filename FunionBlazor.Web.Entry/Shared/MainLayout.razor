@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager;
 <MApp>
 <div class="page">
     <div class="sidebar">
@@ -14,5 +15,7 @@
     </div>
 </div>
 </MApp>
-
+@code{
+    protected override async Task OnInitializedAsync() => new SignalRService((NavigationManager.ToAbsoluteUri("/hubs/chathub")).ToString());
+}
 
