@@ -85,12 +85,10 @@ public class MateWorker : BackgroundService
         {
             Directory.CreateDirectory(sourcePath);
         }
-
         if (!Directory.Exists(targetPath))
         {
             Directory.CreateDirectory(targetPath);
         }
-
         List<string> CreadCsttxt = uplist.Select(o => o.CreateDatestr).Distinct().ToList();
         CreadCsttxt.ForEach(item =>
         {
@@ -111,10 +109,25 @@ public class MateWorker : BackgroundService
                         var arr = lines[i].Split(",");
                         int chindex = sysSettings.FindIndex(o => o.AttributeName == "WagonNumber");
                         string ch = arr[chindex+1].Trim();
+                        //皮重
                         int Tareindex = sysSettings.FindIndex(o => o.AttributeName == "Tare");
+                        //毛重
+                        int RoughWeightindex = sysSettings.FindIndex(o => o.AttributeName == "RoughWeight");
+                        //净重
+                        int Suttleindex = sysSettings.FindIndex(o => o.AttributeName == "Suttle");
+                        //标重
+                        int IndicatedDeightindex = sysSettings.FindIndex(o => o.AttributeName == "IndicatedDeight");
+                        //盈亏
+                        int ProfitLossindex = sysSettings.FindIndex(o => o.AttributeName == "ProfitLoss");
                         var ou = upoulist.FirstOrDefault(o => o.WagonNumber == ch);
                         if(ou != null) {
                             arr[Tareindex + 1] = ou.RoughWeight;
+                            //毛重-皮重=净重
+                            string Suttle = (double.Parse(arr[RoughWeightindex + 1].Trim()) - double.Parse(ou.RoughWeight)).ToString("F2");
+                            arr[Suttleindex + 1] = Suttle;
+                            //净重 - 标重 = 盈亏
+                            string ProfitLoss= (double.Parse(Suttle) - double.Parse(arr[IndicatedDeightindex + 1].Trim())).ToString("F2");
+                            arr[ProfitLossindex + 1] = Suttle; 
                         }
                         lines[i] = string.Join(",",arr);
                     }
