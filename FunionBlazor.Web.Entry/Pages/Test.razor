@@ -1,5 +1,4 @@
 ﻿@page "/print-table"
-@inject IPrintingService PrintingService
 @inject IJSRuntime JSRuntime
 
 <h1>Print Table</h1>
@@ -85,13 +84,8 @@
     }
     private async Task alert()
     {
-        // string html = "";
-        // if (module is not null)
-        // {
-        //     html = await module.InvokeAsync<string>("getHtml", table1111);
-        // }
-        // await PrintingService.Print(html, PrintType.RawHtml);
-        await PrintingService.Print("datatable", PrintType.Html);
+      
+        await JSRuntime.InvokeVoidAsync("printJS", "datatable", "html");
     }
     public class Item
     {

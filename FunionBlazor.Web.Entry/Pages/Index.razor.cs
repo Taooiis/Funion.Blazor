@@ -1,26 +1,19 @@
-﻿using Append.Blazor.Printing;
-using FunionBlazor.Web.Core.Data;
-
-using Microsoft.AspNetCore.SignalR.Client;
-
-namespace FunionBlazor.Web.Entry.Pages
+﻿namespace FunionBlazor.Web.Entry.Pages
 {
     public partial class Index
     {
-        private HubConnection _hubConnection;
         [Inject]
         private TrackScaleService TrackScaleService { get; set; }
-        [Inject]
-        private IPrintingService PrintingService { get; set; }
         
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
+
         private IJSObjectReference? module;
 
         public IQueryable<PresentationDataDto> Datas;
         public PresentationPage _dataPage = null;
         private List<BCascaderNode> _Nodes { get; set; }
-       
+
         private readonly List<int> _pageSizes = new() { 10, 25, 50, 100 };
         public class BCascaderNode
         {
@@ -40,6 +33,7 @@ namespace FunionBlazor.Web.Entry.Pages
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
+            //匹配成功刷新
             SignalRService.hubConnection.On<string>("SuccesMate", (msg) =>
             {
                 LoadListDataAsync();
@@ -57,19 +51,24 @@ namespace FunionBlazor.Web.Entry.Pages
             if (module is not null)
             {
                 await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
+
+                await module.InvokeAsync<string>("printContent", "MDataTable");
             }
-            await PrintingService.Print("MDataTable", PrintType.Html);
+            await InvokeAsync(() => StateHasChanged());
+          
         }
+
+
         private async Task LoadListDataAsync()
         {
-            var list=TrackScaleService.GetTrackScaleDateDto();
+            var list = TrackScaleService.GetTrackScaleDateDto();
             string cstr = list.FirstOrDefault().CreateDatestr;
-            var datas = TrackScaleService.GetPresentationDataDtoListByCreateDatestr(cstr);
+            var datas = TrackScaleService.GetPresentationDataDtoList();
             _dataPage = new PresentationPage(datas);
             _dataPage.DateDtolist = list;
             _dataPage.CreateDatestr = cstr;
             LoadChildren(_dataPage.DateDtolist);
-            
+
         }
         public void LoadChildren(List<FiltersDateDto> list)
         {

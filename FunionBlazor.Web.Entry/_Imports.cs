@@ -9,3 +9,4 @@ global using Microsoft.JSInterop;
 global using System.Linq;
 global using Microsoft.AspNetCore.SignalR.Client;
 global using FunionBlazor.Web.Entry.Utils;
+

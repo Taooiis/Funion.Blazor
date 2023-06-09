@@ -24,12 +24,10 @@ namespace FunionBlazor.Application
         {
             return "SELECT EXTRACT(YEAR FROM CreateDate) AS Year, EXTRACT(Month FROM CreateDate) AS Month,EXTRACT(DAY FROM CreateDate) AS DAY,CreateDatestr\r\nFROM (SELECT DISTINCT CreateDate,CreateDatestr FROM trackscale ORDER BY  CreateDate DESC) as t;".SqlQuery<FiltersDateDto>();
         }
-        public IQueryable<PresentationDataDto> GetPresentationDataDtoListByCreateDatestr(string CreateDatestr)
+        public IQueryable<PresentationDataDto> GetPresentationDataDtoList()
         {
-            var list= _repository.AsQueryable().Where(o=>o.CreateDatestr== CreateDatestr)
-                .OrderByDescending(o => o.CreateDate).Include(u => u.OUlanced)
+            var list= _repository.AsQueryable().OrderByDescending(o => o.CreateDate).Include(u => u.OUlanced)
                 .ProjectToType<PresentationDataDto>();
-          
             return list;
         }
     }
