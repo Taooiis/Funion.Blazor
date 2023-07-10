@@ -51,8 +51,7 @@
             if (module is not null)
             {
                 await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
-
-                await module.InvokeAsync<string>("printContent", "MDataTable");
+                await module.InvokeAsync<string>("printContent", "MDataTable",_dataPage.Cstr);
             }
             await InvokeAsync(() => StateHasChanged());
           
