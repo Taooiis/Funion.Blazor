@@ -224,5 +224,205 @@
             是否匹配
             </summary>
         </member>
+        <member name="T:FunionBlazor.Application.Dto.TrackScaleDataDto">
+            <summary>
+            展示数据
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.CreateDatestr">
+            <summary>
+            创建时间str
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.StarCreateDatestr">
+            <summary>
+            发站时间
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.GdhStation">
+            <summary>
+            轨道衡测点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.WagonNumber">
+            <summary>
+            车号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.MotorcycleType">
+            <summary>
+            车型
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.RoughWeight">
+            <summary>
+            毛重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Tare">
+            <summary>
+            皮重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Suttle">
+            <summary>
+            净重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.IndicatedDeight">
+            <summary>
+            标重
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.ProfitLoss">
+            <summary>
+            盈亏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.SuperTons">
+            <summary>
+            超吨
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.OverT">
+            <summary>
+            编辑状态：null-未编辑 0-已编辑 1-以分组 2-上一班移交 3-移交下一班 4-剩余未分组
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Speed">
+            <summary>
+            速度
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.CargoName">
+            <summary>
+            货名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.TransceiverSend">
+            <summary>
+            发货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.TransceiverCollect">
+            <summary>
+            收货单位
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.SendSend">
+            <summary>
+            发站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.SendCollect">
+            <summary>
+            到站
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.ShipsName">
+            <summary>
+            船名
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.LoadingName">
+            <summary>
+            装车点
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.WeightOff">
+            <summary>
+            允增
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.BeforeAfterPartial">
+            <summary>
+            前后偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.AboutPartial">
+            <summary>
+            左右偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.VehiclePartial">
+            <summary>
+            整车偏
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.LeftOne">
+            <summary>
+            左一（港次）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.RightOne">
+            <summary>
+            右一（换长）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.LeftTwo">
+            <summary>
+            左二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.RightTwo">
+            <summary>
+            右二
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.LeftThree">
+            <summary>
+            左三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.RightThree">
+            <summary>
+            右三
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.LeftFour">
+            <summary>
+            左四
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.RightFour">
+            <summary>
+            右四（车数）
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Remark">
+            <summary>
+            备注：
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.SendState">
+            <summary>
+            状态：0-未发送 1-已发送
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Sequence">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.Sum">
+            <summary>
+            总和
+            </summary>
+        </member>
+        <member name="P:FunionBlazor.Application.Dto.TrackScaleDataDto.IsMate">
+            <summary>
+            是否匹配
+            </summary>
+        </member>
     </members>
 </doc>

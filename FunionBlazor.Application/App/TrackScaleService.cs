@@ -30,5 +30,10 @@ namespace FunionBlazor.Application
                 .ProjectToType<PresentationDataDto>();
             return list;
         }
+        public IQueryable<TrackScaleDataDto> GetTrackScaleDataDtoList()
+        {
+            var list = _repository.AsQueryable().OrderByDescending(o => o.CreateDate).ProjectToType<TrackScaleDataDto>();
+            return list;
+        }
     }
 }

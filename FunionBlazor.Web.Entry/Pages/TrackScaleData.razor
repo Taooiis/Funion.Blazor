@@ -1,0 +1,107 @@
+﻿@page "/TrackScaleData"
+
+<MCard>
+    <MCardText Class="pa-6">
+        <h6>过车时间</h6>
+        <MRow Class="mt-3">
+            <MCol Sm=12 Md=9>
+                <MCascader @bind-Value="_dataPage.CreateDatestr"
+                           Color="primary"
+                           Class="rounded-2"
+                           HideDetails="@("auto")"
+                           Outlined
+                            Items="_Nodes"
+                            ItemText="u => u.Label"
+                            ItemValue="u => u.Value"
+                            ItemChildren="u => u.Children"
+                            Label="过车时间">
+                 </MCascader>
+             </MCol>
+             <MCol Sm=12 Md=3>
+                <MCascader @bind-Value="_dataPage.CreateDatestr"
+                            Color="primary"
+                            Class="rounded-2"
+                            HideDetails="@("auto")"
+                           Outlined
+                            Items="_Nodes"
+                            ItemText="u => u.Label"
+                            ItemValue="u => u.Value"
+                            ItemChildren="u => u.Children"
+                            ShowAllLevels="false">
+                 </MCascader>
+             </MCol>
+         </MRow>
+     </MCardText>
+ </MCard>
+ <MCard Id="MasaTable">
+     <MCardText Class="pa-6">
+         <MRow>
+             <MCol Md=9 Sm=12 Class="d-flex block-center">
+                 <MTextField @bind-Value="_dataPage.Cstr"
+                             Disabled
+                             Color="purple darken-2"
+                             Label="时间日期">
+                 </MTextField>
+                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="()=>RefterData()">
+                     刷新
+                 </MButton>
+                 <MButton Color="primary" MinWidth=80 Height=32 Class="ml-6 rounded-pill" OnClick="PrintTable">
+                     打印
+                 </MButton>
+             </MCol>
+            @* <MCol Md=6 Sm=12 Class="d-flex block-center">
+                 <span class="text-btn neutral-lighten-1--text">每页:</span>
+                 <MSelect @bind-Value="_dataPage.PageSize"
+                          Color="primary"
+                          Style="max-width:120px;"
+                         Dense
+                          Class="mx-6"
+                          HideDetails="@("auto")"
+                         Outlined
+                          Items="@_pageSizes"
+                          ItemText="u => u.ToString()"
+                          ItemValue="u => u">
+                 </MSelect>
+                 <span class="text-btn">个</span>
+             </MCol> *@
+         </MRow>
+     </MCardText>
+    <MDataTable FixedRight Headers="_headers" Items="_dataPage.GetPageDatas()" TItem="TrackScaleDataDto" ItemsPerPage="_dataPage.PageSize" HideDefaultFooter Class="user ml-2 table-border-none">
+         <HeaderColContent Context="header">
+             <span class="text-subtitle">@header.Text</span>
+         </HeaderColContent>
+         <ItemColContent>
+             @switch (context.Header.Value)
+            {
+                case nameof(PresentationDataDto.IsMate):
+
+                    if ((bool)@context.Value)
+                    {
+                        <MChip Color="sample-green-lighten-5" TextColor="sample-green" Ripple="false">
+                            <span>成功匹配</span>
+                        </MChip>
+                    }
+                    else
+                    {
+                        <MChip Color="error-lighten-5" TextColor="error" Ripple="false">
+                            <span>未匹配</span>
+                        </MChip>
+                    }
+                    break;
+                default:
+                    @context.Value
+                    break;
+            }
+        </ItemColContent>
+    </MDataTable>
+    <MCardText>
+        <div class="d-flex">
+            <div class="mr-auto pt-3 text-btn neutral-lighten-1--text">第 @((_dataPage.PageIndex - 1) * _dataPage.PageSize + 1) 到 @(_dataPage.PageIndex * _dataPage.PageSize) 一共 @_dataPage.CurrentCount 个</div>
+            @if (_dataPage.PageCount > 0)
+            {
+                <MPagination @bind-Value="_dataPage.PageIndex" Color="primary" Circle Length=@_dataPage.PageCount></MPagination>
+            }
+        </div>
+    </MCardText>
+</MCard>
+
