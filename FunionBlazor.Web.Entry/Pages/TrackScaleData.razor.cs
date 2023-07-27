@@ -33,12 +33,12 @@
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            //匹配成功刷新
-            SignalRService.hubConnection.On<string>("SuccesMate", (msg) =>
-            {
-                LoadListDataAsync();
-                InvokeAsync(() => StateHasChanged());
-            });
+            ////匹配成功刷新
+            //SignalRService.hubConnection.On<string>("SuccesMate", (msg) =>
+            //{
+            //    LoadListDataAsync();
+            //    InvokeAsync(() => StateHasChanged());
+            //});
             await LoadListDataAsync();
         }
 
