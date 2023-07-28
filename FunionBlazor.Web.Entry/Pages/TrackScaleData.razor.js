@@ -15,20 +15,23 @@ export function printContent(ElementId, Cstr) {
 
     // 创建新的表格元素
     var newdiv = document.createElement("div");
-    var newTable = document.createElement("table");
+    newdiv.style.margin = "auto";             // 居中对齐
+    newdiv.style.width = "260mm;";
 
+    var newTable = document.createElement("table");
     // 设置新表格的样式
     newTable.style.borderCollapse = "collapse";  // 合并边框
     newTable.style.border = "1px solid #000";   // 实线边框
     newTable.style.margin = "auto";             // 居中对齐
-    newTable.style.width = "100 %";             
+    newTable.style.width = "260mm";              
     // 创建表头并添加到新表格中
     var headElement = document.createElement("thead");
     var theadElement = document.createElement("h2");
     theadElement.innerHTML = "大唐富平热电有限公司";
     theadElement.style.textAlign = "center";
-    var element = document.createElement("h5");
+    var element = document.createElement("h4");
     element.innerHTML = "过车时间:" + Cstr + " &nbsp;| &nbsp;重量单位: t";
+    element.style.marginLeft = "6mm"
     var titleElement = document.createElement("title");
     titleElement.innerHTML = "数据打印";
     headElement.appendChild(theadElement);
@@ -53,7 +56,7 @@ export function printContent(ElementId, Cstr) {
                 newCell.innerHTML = table.rows[i].cells[j].innerHTML;
                 // 设置单元格样式
                 newCell.style.border = "1px solid #000";  // 实线单元格边框
-                newCell.style.padding = "8px";           
+                newCell.style.padding = "10px";           
                 newCell.style.textAlign = "center";       // 居中对齐  
                 // 将新的单元格添加到新的行中
                 newRow.appendChild(newCell);
@@ -75,8 +78,9 @@ export function printContent(ElementId, Cstr) {
         // 将新的行添加到新表格中
         newTable.appendChild(newRow);
     }
-    var element = document.createElement("h5");
-    element.innerHTML = "毛重合计：" + total4.toFixed(2) + "&nbsp;&nbsp;皮重合计：" + total5.toFixed(2) + "&nbsp;&nbsp;净重合计：" + total6.toFixed(2) + "&nbsp;&nbsp;标重合计：" + total7.toFixed(2) + "&nbsp;&nbsp;盈亏合计：" + total8.toFixed(2)
+    var element = document.createElement("h4");
+    element.innerHTML = "毛重合计：" + total4.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;皮重合计：" + total5.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;净重合计：" + total6.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;标重合计：" + total7.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;盈亏合计：" + total8.toFixed(2)
+    element.style.marginLeft = "6mm"
     newdiv.appendChild(newTable);
     newdiv.appendChild(element);
     var printWin = window.open('', '', 'left=0,top=0,width=1500,height=1200,toolbar=0,scrollbars=0,status=0');

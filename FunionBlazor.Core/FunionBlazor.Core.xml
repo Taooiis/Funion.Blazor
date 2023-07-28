@@ -331,7 +331,7 @@
         </member>
         <member name="P:FunionBlazor.Core.Entitys.TrackScale.SendState">
             <summary>
-            状态：0-未发送 1-已发送
+            结束时间str
             </summary>
         </member>
         <member name="P:FunionBlazor.Core.Entitys.TrackScale.Direction">

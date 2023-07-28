@@ -10,6 +10,7 @@ namespace FunionBlazor.Web.Core.Data
 
         public string CreateDatestr { get; set; }
         public string Cstr { get; set; }
+        public string ksCstr { get; set; }
         public List<FiltersDateDto> DateDtolist { get; set; }
         public PresentationPage(IQueryable<PresentationDataDto> datas) : base(datas)
         {
@@ -22,6 +23,7 @@ namespace FunionBlazor.Web.Core.Data
             {
                 Cstr = CreateDatestr;
                 datas = datas.Where(o => o.CreateDatestr == CreateDatestr);
+                ksCstr = datas.FirstOrDefault().SendState;
             }
             var list = datas.AsEnumerable().OrderBy(o => o.Sequence);
             return list;

@@ -90,6 +90,7 @@ public class GDHWorker : BackgroundService
         }
         string Direction = "";
         string CreateDatestr = "";
+        string Datestr = "";
         DateTime CreateDate = DateTime.Now;
         for (int i = 0; i < lines.Length; i++)
         {
@@ -98,8 +99,13 @@ public class GDHWorker : BackgroundService
             {
                 Direction = lines[i].Split(":")?[1];
             }
-            //日期时间
+            //开始日期时间
             if (i == 3)
+            {
+                Datestr = lines[i].Split(":")?[1];
+            }
+            //结束日期时间
+            if (i == 4)
             {
                 CreateDatestr = lines[i].Split(":")?[1];
                 DateTime.TryParseExact(CreateDatestr, "yyMMdd_HHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out CreateDate);
@@ -122,6 +128,7 @@ public class GDHWorker : BackgroundService
                 t.Direction= Direction;
                 t.CreateDate = CreateDate;
                 t.CreateDatestr = CreateDatestr;
+                t.SendState = Datestr;
                 tracks.Add(t);
             }
         }

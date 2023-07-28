@@ -8,27 +8,59 @@ export function getElementById(ElementId) {
 export function SetTableByfatherId(ElementId) {
     return document.getElementById(ElementId).getElementsByTagName('table')[0].id = "MDataTable";
 }
+export function tableToExcel(tableId, filename = '') {
+    const table = document.getElementById(tableId);
+    const uri = 'data:application/vnd.ms-excel;base64,';
 
+    let template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
+    template += '<head>';
+    template += '<!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Sheet1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->';
+    template += '</head>';
+    template += '<body>';
+    template += table.outerHTML;
+    template += '</body>';
+    template += '</html>';
+
+    const base64 = function (s) {
+        return window.btoa(unescape(encodeURIComponent(s)));
+    };
+
+    const format = function (s, c) {
+        return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; });
+    };
+
+    const ctx = { worksheet: 'Sheet1', table: table.outerHTML };
+    const link = document.createElement('a');
+    link.href = uri + base64(format(template, ctx));
+    link.download = filename + '.xls';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 export function printContent(ElementId, Cstr) {
     // 获取要处理的表格元素
     var table = document.getElementById(ElementId);
 
     // 创建新的表格元素
     var newdiv = document.createElement("div");
+    newdiv.style.margin = "auto";             // 居中对齐
+    newdiv.style.width = "260mm;";
+    
     var newTable = document.createElement("table");
-
     // 设置新表格的样式
     newTable.style.borderCollapse = "collapse";  // 合并边框
     newTable.style.border = "1px solid #000";   // 实线边框
     newTable.style.margin = "auto";             // 居中对齐
-    newTable.style.width = "100 %";             
+    newTable.style.width = "260mm";             
     // 创建表头并添加到新表格中
     var headElement = document.createElement("thead");
     var theadElement = document.createElement("h2");
     theadElement.innerHTML = "大唐富平热电有限公司";
     theadElement.style.textAlign = "center";
-    var element = document.createElement("h5");
+    var element = document.createElement("h4");
     element.innerHTML = "过车时间:" + Cstr + " &nbsp;| &nbsp;重量单位: t";
+    element.style.marginLeft="6mm"
     var titleElement = document.createElement("title");
     titleElement.innerHTML = "数据打印";
     headElement.appendChild(theadElement);
@@ -75,8 +107,9 @@ export function printContent(ElementId, Cstr) {
         // 将新的行添加到新表格中
         newTable.appendChild(newRow);
     }
-    var element = document.createElement("h5");
-    element.innerHTML = "毛重合计：" + total4.toFixed(2) + "&nbsp;&nbsp;皮重合计：" + total5.toFixed(2) + "&nbsp;&nbsp;净重合计：" + total6.toFixed(2) + "&nbsp;&nbsp;标重合计：" + total7.toFixed(2) + "&nbsp;&nbsp;盈亏合计：" + total8.toFixed(2)
+    var element = document.createElement("h4");
+    element.innerHTML = "毛重合计：" + total4.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;皮重合计：" + total5.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;净重合计：" + total6.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;标重合计：" + total7.toFixed(2) + "&nbsp;&nbsp;&nbsp;&nbsp;盈亏合计：" + total8.toFixed(2)
+    element.style.marginLeft = "6mm"
     newdiv.appendChild(newTable);
     newdiv.appendChild(element);
     var printWin = window.open('', '', 'left=0,top=0,width=1500,height=1200,toolbar=0,scrollbars=0,status=0');

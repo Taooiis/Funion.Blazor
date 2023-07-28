@@ -51,10 +51,19 @@
             if (module is not null)
             {
                 await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
-                await module.InvokeAsync<string>("printContent", "MDataTable",_dataPage.Cstr);
+                string datestr = _dataPage.ksCstr + "-" + _dataPage.Cstr;
+                await module.InvokeAsync<string>("printContent", "MDataTable", datestr);
             }
             await InvokeAsync(() => StateHasChanged());
-          
+        }
+        private async Task TableToExcel()
+        {
+            if (module is not null)
+            {
+                await module.InvokeAsync<string>("SetTableByfatherId", "MasaTable");
+                await module.InvokeAsync<string>("tableToExcel", "MDataTable", _dataPage.Cstr);
+            }
+            await InvokeAsync(() => StateHasChanged());
         }
 
 
@@ -109,11 +118,11 @@
             new() { Text = "净重", Value = nameof(PresentationDataDto.Suttle) },
             new() { Text = "标重", Value = nameof(PresentationDataDto.IndicatedDeight) },
             new() { Text = "盈亏", Value = nameof(PresentationDataDto.ProfitLoss) },
-            new() { Text = "速度", Value = nameof(PresentationDataDto.Speed) },
+            //new() { Text = "速度", Value = nameof(PresentationDataDto.Speed) },
             //new() { Text = "货名", Value = nameof(PresentationDataDto.CargoName) },
-            new() { Text = "发货单位", Value = nameof(PresentationDataDto.TransceiverSend) },
+            //new() { Text = "发货单位", Value = nameof(PresentationDataDto.TransceiverSend) },
             //new() { Text = "收货单位", Value = nameof(PresentationDataDto.TransceiverCollect) },
-            new() { Text = "发站", Value = nameof(PresentationDataDto.SendSend) },
+            //new() { Text = "发站", Value = nameof(PresentationDataDto.SendSend) },
             //new() { Text = "到站", Value = nameof(PresentationDataDto.SendCollect) },
             //new() { Text = "发站时间", Value = nameof(PresentationDataDto.StarCreateDatestr) },
             //new() { Text = "备注", Value = nameof(PresentationDataDto.Remark) },

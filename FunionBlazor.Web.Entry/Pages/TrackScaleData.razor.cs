@@ -33,12 +33,7 @@
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            ////匹配成功刷新
-            //SignalRService.hubConnection.On<string>("SuccesMate", (msg) =>
-            //{
-            //    LoadListDataAsync();
-            //    InvokeAsync(() => StateHasChanged());
-            //});
+            
             await LoadListDataAsync();
         }
 
@@ -108,11 +103,11 @@
             new() { Text = "净重", Value = nameof(TrackScaleDataDto.Suttle) },
             new() { Text = "标重", Value = nameof(TrackScaleDataDto.IndicatedDeight) },
             new() { Text = "盈亏", Value = nameof(TrackScaleDataDto.ProfitLoss) },
-            new() { Text = "速度", Value = nameof(TrackScaleDataDto.Speed) },
+            //new() { Text = "速度", Value = nameof(TrackScaleDataDto.Speed) },
             //new() { Text = "货名", Value = nameof(TrackScaleDataDto.CargoName) },
-            new() { Text = "发货单位", Value = nameof(TrackScaleDataDto.TransceiverSend) },
+            //new() { Text = "发货单位", Value = nameof(TrackScaleDataDto.TransceiverSend) },
             //new() { Text = "收货单位", Value = nameof(TrackScaleDataDto.TransceiverCollect) },
-            new() { Text = "发站", Value = nameof(TrackScaleDataDto.SendSend) },
+            //new() { Text = "发站", Value = nameof(TrackScaleDataDto.SendSend) },
             //new() { Text = "到站", Value = nameof(TrackScaleDataDto.SendCollect) },
             //new() { Text = "发站时间", Value = nameof(TrackScaleDataDto.StarCreateDatestr) },
             //new() { Text = "备注", Value = nameof(TrackScaleDataDto.Remark) },

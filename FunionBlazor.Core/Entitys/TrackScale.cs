@@ -180,7 +180,7 @@ namespace FunionBlazor.Core.Entitys
         public string Remark { get; set; }
 
         /// <summary>
-        /// 状态：0-未发送 1-已发送
+        /// 结束时间str
         /// </summary>
         public string SendState { get; set; }
 
